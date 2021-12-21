@@ -49,7 +49,7 @@ func NewGroup(name string, cacheBytes int64, getter Getter) *Group {
 // GetGroup returns the named group previously created with NewGroup, or
 // nil if there's no such group.
 func GetGroup(name string) *Group {
-	mu.RLocker()
+	mu.RLock()
 	g := groups[name]
 	mu.RUnlock()
 	return g
